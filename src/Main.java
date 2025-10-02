@@ -1,11 +1,16 @@
-// BusinessSystem.java
 import java.util.*;
+// If you want to use the other classes, import them like this:
+// import daySix.InstantPayCheck;
+// import daySix.LottaryTicket;
+// import daySix.Student;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Collection
+        // ================================
+        // BusinessSystem: Employee Example
+        // ================================
         List<Employee> employees = new ArrayList<>();
 
         // initial employees
@@ -56,7 +61,6 @@ public class Main {
                         emp.displayInfo();
                         System.out.println("Calculated Salary: " + emp.calculateSalary());
 
-                        // instanceof check
                         if (emp instanceof Manager) {
                             System.out.println("Role: Manager");
                         } else if (emp instanceof SalesPerson) {
@@ -73,7 +77,7 @@ public class Main {
                     for (Employee emp : employees) {
                         totalPayroll += emp.calculateSalary();
                     }
-                    System.out.printf("Total Payroll:  %.0f%n" , totalPayroll);
+                    System.out.printf("Total Payroll: %.0f%n", totalPayroll);
                     break;
 
                 case 4:
@@ -91,5 +95,41 @@ public class Main {
         } while (choice != 0);
 
         sc.close();
+
+        // ================================
+        // Extra Practice (Uncomment to test)
+        // ================================
+
+        /*
+        // Example: Lottery Ticket
+        int[] ticket = LottaryTicket.generateTicketNumbers();
+        LottaryTicket.printTicket(ticket);
+
+        // Example: Student Array
+        Student[] students = new Student[3];
+        students[0] = new Student("Ahmed", 50);
+        students[1] = new Student("Mohamed", 40);
+        students[2] = new Student("Anas", 80);
+        for (Student s : students) {
+            s.printInfo();
+        }
+
+        // Example: Fruit Search
+        Scanner scanner = new Scanner(System.in);
+        String[] fruits = {"Apple", "Banana", "Orange", "Mango", "Grapes"};
+        System.out.print("Enter the fruit to search for: ");
+        String target = scanner.nextLine();
+        boolean isFound = false;
+        for (int i = 0; i < fruits.length; i++) {
+            if (fruits[i].equalsIgnoreCase(target)) {
+                System.out.println(target + " found at index " + i);
+                isFound = true;
+                break;
+            }
+        }
+        if (!isFound) {
+            System.out.println(target + " not found in the array");
+        }
+        */
     }
 }
